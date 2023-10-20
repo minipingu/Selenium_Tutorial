@@ -1,3 +1,5 @@
+package KasirAja;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Test;
 import org.openqa.selenium.By;
