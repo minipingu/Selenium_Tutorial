@@ -64,7 +64,7 @@ public class LoginDDT {
                     driver.close();
                 } else {
                     //assert error message
-                    String wrong_credential = driver.findElement(By.xpath("//div[@role='alert']")).getText();
+                    String wrong_credential = driver.findElement(By.xpath("//a[contains(text(),'ingin mencoba, daftar ?')]")).getText();
                     Assert.assertEquals(wrong_credential, "Kredensial yang Anda berikan salah");
                     driver.close();
                 } //else

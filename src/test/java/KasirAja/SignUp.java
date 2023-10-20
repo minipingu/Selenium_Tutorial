@@ -29,7 +29,7 @@ public class SignUp {
         driver.findElement(By.id("password")).sendKeys("feriashen");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-        driver.close();
+
 
 
     }
