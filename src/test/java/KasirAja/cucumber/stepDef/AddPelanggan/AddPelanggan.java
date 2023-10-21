@@ -1,4 +1,4 @@
-package KasirAja.cucumber.stepDef.AddPengguna;
+package KasirAja.cucumber.stepDef.AddPelanggan;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,10 +10,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.concurrent.TimeUnit;
 
-public class AddPengguna {
+public class AddPelanggan {
     //set driver fir test using webdriver from selenium
     WebDriver driver;
 
@@ -24,14 +26,14 @@ public class AddPengguna {
     public void user_is_on_kasir_aja_login_page(){
 
         //setup firefox driver automatically using web driver manager
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
         //create object to setup option for firefox driver
-        ChromeOptions opt = new ChromeOptions();
+        FirefoxOptions opt = new FirefoxOptions();
         //set firefox driver to not using headless mode
         opt.setHeadless(false);
 
         //apply firefox driversetup to driver
-        driver = new ChromeDriver(opt);
+        driver = new FirefoxDriver(opt);
         //set timeout for web driver on waiting element
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         //maximize window
@@ -57,9 +59,9 @@ public class AddPengguna {
 
     }
 
-    @Then("user click kategori button")
-    public void userClickKategoriButton() {
-        driver.findElement(By.xpath("//div[contains(text(),'kategori')]")).click();
+    @Then("user click pelanggan button")
+    public void userClickpelangganButton() {
+        driver.findElement(By.xpath("//div[contains(text(),'pelanggan')]")).click();
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
@@ -69,9 +71,9 @@ public class AddPengguna {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
-    @When("user fill or not filling (.*) as nama_kategori$")
-    public void userFillOrNotFillingNama_kategoriField(String nama_kategori) {
-        driver.findElement(By.id("nama")).sendKeys(nama_kategori);
+    @When("user fill or not filling (.*) as nama_pelanggan$")
+    public void userFillOrNotFillingNama_pelangganField(String nama_pelanggan) {
+        driver.findElement(By.id("nama")).sendKeys(nama_pelanggan);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
     }
@@ -79,18 +81,16 @@ public class AddPengguna {
     @And("user click simpan")
     public void userClickSimpan() {
         driver.findElement(By.xpath("//button[contains(text(),'simpan')]")).click();
-        driver.navigate().refresh();
-        driver.navigate().to(driver.getCurrentUrl());
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 
     }
 
     @Then("user verify (.*) add (.*)$")
-    public void userVerifyStatusAddKategori(String status, String nama_kategori) {
+    public void userVerifyStatusAddpelanggan(String status, String nama_pelanggan) {
         if (status.equals("success")) {
             //assert success login
             String tambah = driver.findElement(By.xpath("//td[@role='gridcell']")).getText();
-            Assert.assertEquals(tambah,nama_kategori);
+            Assert.assertEquals(tambah,nama_pelanggan);
             driver.close();
         } else {
             //assert error message

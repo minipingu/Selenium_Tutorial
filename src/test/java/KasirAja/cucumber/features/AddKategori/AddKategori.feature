@@ -1,6 +1,6 @@
-Feature: Login functionality
+Feature: Tambah kategori functionality
 
-Scenario Outline: Ensure login functionality
+Scenario Outline: Ensure tambah kategori functionality
  Given user is on KasirAja login page
   When user input <email> as email
   And  user input <password> as password
