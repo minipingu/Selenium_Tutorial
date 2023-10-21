@@ -87,16 +87,15 @@ public class AddKategori {
 
     @Then("user verify (.*) add (.*)$")
     public void userVerifyStatusAddKategori(String status, String nama_kategori) {
-
-        driver.navigate().refresh();
-
         if (status.equals("success")) {
             //assert success login
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
             String tambah = driver.findElement(By.xpath("//td[@role='gridcell']")).getText();
             Assert.assertEquals(tambah,nama_kategori);
             driver.close();
         } else {
             //assert error message
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
             String empty_name = driver.findElement(By.xpath("//div[@role='alert']")).getText();
             Assert.assertEquals(empty_name, "\"name\" is not allowed to be empty");
             driver.close();
