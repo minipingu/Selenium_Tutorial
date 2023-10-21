@@ -57,7 +57,34 @@ public class AddKategori {
 
     }
 
-    //div[contains(text(),'kategori')]
+    @Then("user click kategori button")
+    public void userClickKategoriButton() {
+        driver.findElement(By.xpath("//div[contains(text(),'kategori')]")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
+
+    @And("user click tambah button")
+    public void userClickTambahButton() {
+        driver.findElement(By.xpath("//a[contains(text(),'tambah')]")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
+
+    @When("user fill or not filling (.*) as nama_kategori$")
+    public void userFillOrNotFillingNama_kategoriField(String nama_kategori) {
+        driver.findElement(By.id("nama")).sendKeys(nama_kategori);
+    }
+
+    @And("user click simpan")
+    public void userClickSimpan() {
+        driver.findElement(By.xpath("//button[contains(text(),'simpan')]")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
+
+    @Then("user verify <status> add kategori")
+    public void userVerifyStatusAddKategori() {
+    }
+
+
 
     @Then("user verify (.*) login result$")
     public void user_verify_success_login_result(String status){
@@ -76,5 +103,7 @@ public class AddKategori {
         } //else
 
     }
+
+
 
 }

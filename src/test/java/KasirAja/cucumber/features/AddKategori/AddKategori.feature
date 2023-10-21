@@ -7,12 +7,13 @@ Scenario Outline: Ensure login functionality
   When user click submit
   Then user click kategori button
   And  user click tambah button
-  When user fill or not filling nama field
+  When user fill or not filling <nama_kategori> as nama_kategori
   And  user click simpan
   Then user verify <status> add kategori
 
 
   Examples:
 
-  |email|password|status|
-  |feriashen@naraka.com|feriashen|success|
+  |email               |password |status |nama_kategori|
+  |feriashen@naraka.com|feriashen|success|senapan      |
+  |feriashen@naraka.com|feriashen|failed |             |
