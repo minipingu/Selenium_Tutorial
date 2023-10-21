@@ -9,11 +9,11 @@ Scenario Outline: Ensure login functionality
   And  user click tambah button
   When user fill or not filling <nama_kategori> as nama_kategori
   And  user click simpan
-  Then user verify <status> add kategori
+  Then user verify <status> add <nama_kategori>
 
 
   Examples:
 
   |email               |password |status |nama_kategori|
-  |feriashen@naraka.com|feriashen|success|senapan      |
-  |feriashen@naraka.com|feriashen|failed |             |
+  |feriashen@naraka.com|feriashen|success|dual pistol|
+  |feriashen@naraka.com|feriashen|failed ||

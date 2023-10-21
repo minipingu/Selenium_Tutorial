@@ -1,4 +1,4 @@
-package KasirAja.cucumber.stepDef.AddKategori;
+package KasirAja.cucumber.stepDef.AddPengguna;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
-public class AddKategori {
+public class AddPengguna {
     //set driver fir test using webdriver from selenium
     WebDriver driver;
 
